@@ -53,7 +53,7 @@ for REPO in $REPOS; do
     # If exceptions or "cleared" change refs are present eliminate those from
     # list
     if [ -r ../$REPO-exceptions.txt ]; then
-        for changeref in $(cat ../$REPO-exceptions.txt); do
+        for changeref in $(cat ../$REPO-exceptions.txt | sed -e 's/\w*#.*$//g'); do
             EXCEPT+="${changeref}\n"
         done
     fi
