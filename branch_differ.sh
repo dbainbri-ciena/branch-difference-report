@@ -12,7 +12,7 @@ REPOS="voltha-bbsim \
     voltha-openonu-adapter"
 REF1=origin/master
 REF2=origin/voltha-2.1
-FORMAT="%s|%s|%s|%s|%s|%.60s\n"
+FORMAT="%s|%s|%s|%s|%s|%.40s\n"
 
 if [ "$UPDATE_GIT" == "yes" ]; then
     for REPO in $REPOS; do
@@ -63,7 +63,7 @@ for REPO in $REPOS; do
 
     # print short log message on each branch if that Change-Id's is found
     for unshared in $UNSHARED; do
-        unshared_log=$(git log  --pretty="%H|%aN|%s" --grep="$unshared" $REF1)
+        unshared_log=$(git log  --pretty="%H|%ae|%s" --grep="$unshared" $REF1)
         if [[ -n $unshared_log ]]; then
             ID=$(echo $unshared_log | cut -d\| -f1)
             OWNER=$(echo $unshared_log | cut -d\| -f2)
@@ -72,7 +72,7 @@ for REPO in $REPOS; do
         fi
     done
     for unshared in $UNSHARED; do
-        unshared_log=$(git log  --pretty="%H|%aN|%s" --grep="$unshared" $REF2)
+        unshared_log=$(git log  --pretty="%H|%ae|%s" --grep="$unshared" $REF2)
         if [[ -n $unshared_log ]]; then
             ID=$(echo $unshared_log | cut -d\| -f1)
             OWNER=$(echo $unshared_log | cut -d\| -f2)
