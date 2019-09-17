@@ -5,6 +5,7 @@
 set -eu -o pipefail
 
 UPDATE_GIT=${UPDATE_GIT:-no}
+COMMENT_LEN=${COMMENT_LEN:-40}
 
 REPOS="voltha-bbsim \
     voltha-go \
@@ -12,7 +13,7 @@ REPOS="voltha-bbsim \
     voltha-openonu-adapter"
 REF1=origin/master
 REF2=origin/voltha-2.1
-FORMAT="%s|%s|%s|%s|%s|%.40s\n"
+FORMAT="%s|%s|%s|%s|%s|%.${COMMENT_LEN}s\n"
 
 if [ "$UPDATE_GIT" == "yes" ]; then
     for REPO in $REPOS; do
