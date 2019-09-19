@@ -2,4 +2,5 @@ voltha-bbsim
 voltha-go
 voltha-openolt-adapter
 voltha-openonu-adapter
+pyvoltha
 *.swp

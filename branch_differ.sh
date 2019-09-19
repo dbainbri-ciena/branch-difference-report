@@ -10,7 +10,8 @@ COMMENT_LEN=${COMMENT_LEN:-40}
 REPOS="voltha-bbsim \
     voltha-go \
     voltha-openolt-adapter \
-    voltha-openonu-adapter"
+    voltha-openonu-adapter \
+    pyvoltha"
 REF1=origin/master
 REF2=origin/voltha-2.1
 FORMAT="%s|%s|%s|%s|%s|%.${COMMENT_LEN}s\n"
